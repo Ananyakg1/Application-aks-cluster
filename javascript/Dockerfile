@@ -4,7 +4,7 @@ LABEL maintainer="Azure App Service Container Images <appsvc-images@microsoft.co
 
 WORKDIR /app
 
-COPY examples/ .
+COPY javascript/ .
 
 
 EXPOSE 3000

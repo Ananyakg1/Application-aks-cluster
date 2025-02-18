@@ -1,0 +1,12 @@
+FROM node:18-alpine
+
+LABEL maintainer="Azure App Service Container Images <appsvc-images@microsoft.com>"
+
+WORKDIR /app
+
+COPY examples/ .
+
+
+EXPOSE 3000
+
+CMD [ "npm", "start" ]

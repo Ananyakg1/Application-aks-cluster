@@ -30,7 +30,7 @@ jobs:
 
       - name: Docker Push
         run: |
-          docker push youracr.azurecr.io/javascript:1.0
+          docker push aksregistry1.azurecr.io/javascript:1.0
           
       - name: Run a multi-line script
         run: |

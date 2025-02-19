@@ -1,19 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: javascript-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: javascript-app
   template:
     metadata:
       labels:
-        app: my-app
+        app: javascript-app
     spec:
       containers:
-        - name: my-app
-          image: <ACR_NAME>.azurecr.io/my-app:latest
+        - name: javascript-app
+          image: aksregistry1.azurecr.io/javascript:1.0  # Pulls from ACR
           ports:
-            - containerPort: 80
+            - containerPort: 3000
+

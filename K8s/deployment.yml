@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: javascript-app
-          image: aksregistry1.azurecr.io/javascript:1.0  # Pulls from ACR
+          image: aksregistry2.azurecr.io/javascript:1.0  # Pulls from ACR
           ports:
             - containerPort: 3000
 

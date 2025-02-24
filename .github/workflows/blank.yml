@@ -28,10 +28,18 @@ jobs:
           docker build -t javascript:1.0 .
           docker tag javascript:1.0 aksregistry2.azurecr.io/javascript:1.0
 
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'javascript:1.0'
+          format: 'table'
+          exit-code: 1 # Fails the workflow if vulnerabilities are found
+          severity: 'CRITICAL,HIGH'
+
       - name: Docker Push
         run: |
           docker push aksregistry2.azurecr.io/javascript:1.0
           
       - name: Run a multi-line script
         run: |
-          echo "Docker image successfully built and pushed to ACR!"
+          echo "Docker image successfully built, scanned, and pushed to ACR!"

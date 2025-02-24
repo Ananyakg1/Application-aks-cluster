@@ -20,17 +20,17 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Log in to Azure Container Registry (ACR)
-        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login aksregistry1.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login aksregistry2.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
 
       - name: Docker Build and Tag
         run: |
           cd $GITHUB_WORKSPACE/javascript
           docker build -t javascript:1.0 .
-          docker tag javascript:1.0 aksregistry1.azurecr.io/javascript:1.0
+          docker tag javascript:1.0 aksregistry2.azurecr.io/javascript:1.0
 
       - name: Docker Push
         run: |
-          docker push aksregistry1.azurecr.io/javascript:1.0
+          docker push aksregistry2.azurecr.io/javascript:1.0
           
       - name: Run a multi-line script
         run: |
